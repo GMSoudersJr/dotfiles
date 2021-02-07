@@ -10,7 +10,6 @@ set visualbell
 " Find files without using a plugin
 " Search down into subfolders
 set path+=**
-source ~/vimscriptpractice.vim
 set more
 " Display options
 set showmode
