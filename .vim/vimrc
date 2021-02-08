@@ -136,6 +136,7 @@ augroup snippetAbbreviations
     autocmd FileType html iabbrev <buffer> h5 <h5></h5><C-O>F<
     autocmd FileType html iabbrev <buffer> h6 <h6></h6><C-O>F<
     autocmd FileType html iabbrev <buffer> p <p></p><Esc>F<i
+    autocmd FileType sh iabbrev <buffer> func function(){}<C-O>i<CR><Esc>kf(i
 augroup END
 " }}}
 " VIMSCRIPT_FILE_SETTINGS --------------{{{
