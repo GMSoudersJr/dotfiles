@@ -2,10 +2,8 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-# opening chrome in linux.
+# opening chrome in linux on a windows pc.
 alias launchchrome="\"/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe\""
-# battery info on the lg gram running wsl
-alias battery_capacity='cat /sys/class/power_supply/battery/capacity'
 # updating and upgrading cause I am tired of type it all out
 alias update='sudo apt-get update'
 alias upgrade='sudo apt upgrade'
@@ -16,5 +14,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias c='clear'
 # attach to a tmux session or start a new one
 alias t='tmux a || tmux'
-# an alias to make make vim easier to copy and waste with
+# find zombie processes
+alias zombie='ps axo stat,ppid,pid,comm | grep -w defunct'
+# an alias to make make vim easier to copy and paste with
 alias vim='vim -c "let g:tty='\''$(tty)'\''"'
