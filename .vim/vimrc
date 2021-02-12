@@ -1,5 +1,7 @@
 " BASIC_SETTINGS ---------- {{{
 let maplocalleader="\\"
+let pi = 3.14159265359
+let e  = 2.71828182846
 set nocompatible
 set noswapfile
 set nobackup
@@ -44,14 +46,19 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 " To easily pull up buffer list and type the one I want
 nnoremap <leader>b :buffers<CR>:buffer<Space>
 vnoremap <Space> zf
+" INSERT_MODE_DOUBLE_CAPS ---------- {{{
 inoremap UU <C-O>u
 inoremap AA <Esc>A
 inoremap OO <Esc>O
 inoremap WW <Esc>:w<CR>
 inoremap HH <C-O>^
+" }}}
+" ESCAPE_EASILY ----------{{{
 inoremap jk <Esc>
 vnoremap jk <Esc>
 cnoremap jk <Esc>
+" }}}
+" FUNCTION_KEYS ---------- {{{
 " Vim's auto indentation feature does not work from an outside clipboard.
 " Press <F2> key to toggle.
 nnoremap <F2> :set invpaste paste?<CR> imap <F2> <C-O>:set invpaste paste?<CR>
@@ -62,9 +69,10 @@ inoremap <F4> <Esc>:write<CR>
 nnoremap <F5> :write<CR>:source %<CR>
 inoremap <F5> <Esc>:write<CR>:source %<CR>
 nnoremap <F12> :write<CR>:mksession! $HOME/.vim/sessions/mine.vim<CR>:qall<CR>
-" Move the current line up
+" }}}
+" Move current line up
 noremap - dd2kp
-" Move the current line down
+" Move current line down
 noremap _ ddp
 noremap H ^
 noremap L $
@@ -78,6 +86,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Open the abbreviations plugin
 nnoremap <leader>et :vsplit
             \ $HOME/.vim/pack/my-plugins/start/mytypos/plugin/mytypos.vim<CR>
+" OPERATE_AROUND_BRACKETS ---------- {{{
 onoremap p i(
 onoremap in( :<C-U>normal! f(vi(<CR>
 onoremap il( :<C-U>normal! F)vi(<CR>
@@ -87,8 +96,15 @@ onoremap in{ :<C-U>normal! f{vi{<CR>
 onoremap il{ :<C-U>normal! F}vi{<CR>
 onoremap <silent> F :<C-U>normal! 0f(hviw<CR>
 " }}}
+" OPEN_PREVIOUS_BUFFER_IN_WINDOW_RIGHT_OR_BELOW ---------- {{{
+inoremap <Leader>r <Esc>:execute "rightbelow vsplit " . bufname("#")<CR>
+nnoremap <Leader>r :execute "rightbelow vsplit " . bufname("#")<CR>
+inoremap <Leader>v <Esc>:execute "rightbelow split " . bufname("#")<CR>
+nnoremap <Leader>v :execute "rightbelow split " . bufname("#")<CR>
+" }}}
+" }}}
 " AUTOCOMMANDS ---------- {{{
-" FOLDS ---------- {{{
+" SAVE_AND_LOAD_FOLDS ---------- {{{
 augroup folds
     autocmd!
     autocmd BufWinLeave *.* mkview
@@ -128,15 +144,22 @@ augroup snippetAbbreviations
     autocmd!
     autocmd FileType python iabbrev <buffer> iff if:<Left>
     autocmd FileType python iabbrev <buffer> whi while:<Left>
-    autocmd FileType python,sh,vim iabbrev <buffer> ret return 
+    autocmd FileType python,sh,vim iabbrev <buffer> ret return
+    autocmd FileType python iabbrev <buffer> ei elif:<Left>
+    autocmd FileType python iabbrev <buffer> el else:<C-O>o<Left>
     autocmd FileType html iabbrev <buffer> h1 <h1></h1><C-O>F<
     autocmd FileType html iabbrev <buffer> h2 <h2></h2><C-O>F<
     autocmd FileType html iabbrev <buffer> h3 <h3></h3><C-O>F<
     autocmd FileType html iabbrev <buffer> h4 <h4></h4><C-O>F<
     autocmd FileType html iabbrev <buffer> h5 <h5></h5><C-O>F<
     autocmd FileType html iabbrev <buffer> h6 <h6></h6><C-O>F<
-    autocmd FileType html iabbrev <buffer> p <p></p><Esc>F<i
-    autocmd FileType sh iabbrev <buffer> func function(){}<C-O>i<CR><Esc>kf(i
+    autocmd FileType html iabbrev <buffer> p <p></p><C-O>F<
+    autocmd FileType vim iabbrev <buffer> ei elseif
+    autocmd FileType sh iabbrev <buffer> func
+                \ function N(){}<C-O>i<CR><Esc>kfNciw<BS>
+    autocmd FileType javascript nnoremap <buffer> <Leader>; mqA;<Esc>`q
+    autocmd FileType javascript inoremap <buffer> <Leader>; <Esc>:execute
+                \ "normal! mqA;\<lt>Esc>`q"<CR>
 augroup END
 " }}}
 " VIMSCRIPT_FILE_SETTINGS --------------{{{
@@ -144,6 +167,17 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker foldlevelstart=0
 augroup END
+" }}}
+" WSL_YANK_SUPPORT ---------- {{{
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y'
+                    \ | call system(s:clip, @0)
+                    \ | endif
+    augroup END
+endif
 " }}}
 " }}}
 " PERSONAL_ABBREVIATIONS ---------- {{{
@@ -155,6 +189,7 @@ set formatoptions=tcqnp1
 " To help with completions
 set ignorecase
 set infercase
+set smartcase
 " Display all matching files when tab complete
 set wildmenu
 " Automatically wrap text
