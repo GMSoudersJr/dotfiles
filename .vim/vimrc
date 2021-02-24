@@ -86,6 +86,10 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Open the abbreviations plugin
 nnoremap <leader>et :vsplit
             \ $HOME/.vim/pack/my-plugins/start/mytypos/plugin/mytypos.vim<CR>
+" Find trailing white space
+nnoremap <Leader>w :match Error /\v\s+$/<CR>
+nnoremap <Leader>W :match none<CR>
+nnoremap / /\v
 " OPERATE_AROUND_BRACKETS ---------- {{{
 onoremap p i(
 onoremap in( :<C-U>normal! f(vi(<CR>
@@ -97,19 +101,21 @@ onoremap il{ :<C-U>normal! F}vi{<CR>
 onoremap <silent> F :<C-U>normal! 0f(hviw<CR>
 " }}}
 " OPEN_PREVIOUS_BUFFER_IN_WINDOW_RIGHT_OR_BELOW ---------- {{{
-inoremap <Leader>r <Esc>:execute "rightbelow vsplit " . bufname("#")<CR>
 nnoremap <Leader>r :execute "rightbelow vsplit " . bufname("#")<CR>
-inoremap <Leader>v <Esc>:execute "rightbelow split " . bufname("#")<CR>
 nnoremap <Leader>v :execute "rightbelow split " . bufname("#")<CR>
 " }}}
+" nnoremap <Leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>"))
+            " \ . " ."<CR>:copen<CR>:redraw!<CR>
+nnoremap <Leader>cn :cnext<CR>
+nnoremap <Leader>cp :cprevious<CR>
 " }}}
 " AUTOCOMMANDS ---------- {{{
 " SAVE_AND_LOAD_FOLDS ---------- {{{
-augroup folds
-    autocmd!
-    autocmd BufWinLeave *.* mkview
-    autocmd BufWinEnter *.* silent loadview"
-augroup END
+" augroup folds
+    " autocmd!
+    " autocmd BufWinLeave *.* mkview
+    " autocmd BufWinEnter *.* silent loadview"
+" augroup END
 " }}}
 " TEMPLATES ---------- {{{
 augroup templates
@@ -160,6 +166,14 @@ augroup snippetAbbreviations
     autocmd FileType javascript nnoremap <buffer> <Leader>; mqA;<Esc>`q
     autocmd FileType javascript inoremap <buffer> <Leader>; <Esc>:execute
                 \ "normal! mqA;\<lt>Esc>`q"<CR>
+    autocmd FileType vim iabbrev <buffer> ef endfunction
+augroup END
+" }}}
+" FILETYPE_TABS ---------- {{{
+augroup fileTypeTabs
+    autocmd!
+    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType python setlocal shiftwidth=4 softtabstop=2
 augroup END
 " }}}
 " VIMSCRIPT_FILE_SETTINGS --------------{{{
@@ -237,8 +251,8 @@ set statusline+=[%n] " Buffer Number
 set statusline+=\ %.15F " File Path Name
 set statusline+=%m%r%h%w " File tags
 set statusline+=%< " Truncate from here
-set statusline+=\ [TYPE=%Y] " Type of file
-set statusline+=\ [FORMAT=%{&ff}]\  " Format of file
+set statusline+=[TYPE=%Y] " Type of file
+set statusline+=[FORMAT=%{&ff}]\  " Format of file
 set statusline+=%1* " Color the mode
 set statusline+=░▒%{ModeCurrent()}▒░\  " Mode
 set statusline+=%= " Right justify.  Everything below is on the right side.
