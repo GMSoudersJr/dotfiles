@@ -18,3 +18,7 @@ alias t='tmux a || tmux'
 alias zombie='ps axo stat,ppid,pid,comm | grep -w defunct'
 # an alias to make make vim easier to copy and paste with
 alias vim='vim -c "let g:tty='\''$(tty)'\''"'
+# an alias to start the backoffice development server locally
+alias sbo='cd ~/backoffice/kids-api/Web/BackofficeApp && npm start'
+# an alias to start editing the backoffice app in vim
+alias vbo='vim ~/backoffice/kids-api/Web/BackofficeApp'
