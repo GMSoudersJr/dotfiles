@@ -163,7 +163,7 @@ augroup snippetAbbreviations
     autocmd FileType html iabbrev <buffer> p <p></p><C-O>F<
     autocmd FileType vim iabbrev <buffer> ei elseif
     autocmd FileType sh iabbrev <buffer> func
-                \ function N(){}<C-O>i<CR><Esc>kfNciw<BS>
+                \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
     autocmd FileType javascript nnoremap <buffer> <Leader>; mqA;<Esc>`q
     autocmd FileType javascript inoremap <buffer> <Leader>; <Esc>:execute
                 \ "normal! mqA;\<lt>Esc>`q"<CR>
