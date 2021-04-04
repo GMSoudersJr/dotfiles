@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change to a directory and list its contents
-function cl(){
+function cl() {
     DIR="$*";
     if [ $# -lt 1 ]; then
         DIR=$HOME;
@@ -9,20 +9,20 @@ function cl(){
 }
 
 # display the cpu's temp
-function cpuTemp(){
+function cpuTemp() {
     degC="\u00B0C"
     cpuTemp=$(</sys/class/thermal/*/temp)
     printf "%s.%.1s$degC\n" $((cpuTemp/1000)) $((cpuTemp%1000))
 }
 
 # Display the battery's capacity
-function batteryCapacity(){
+function batteryCapacity() {
     batteryCapacity=$(</sys/class/power_supply/*/capacity)
     printf "%d%%\n" $batteryCapacity
 }
 
 # Display the battery's status
-function batteryStatus(){
+function batteryStatus() {
     status=$(</sys/class/power_supply/*/status)
     chargingSymbol="\u02c4"
     dischargingSymbol="\u02c5"
@@ -41,4 +41,9 @@ function batteryStatus(){
       fi
      fi
     fi
+}
+
+# Display the current git branch if I'm on one
+function git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
