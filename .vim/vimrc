@@ -154,13 +154,13 @@ augroup snippetAbbreviations
     autocmd FileType python,sh,vim iabbrev <buffer> ret return
     autocmd FileType python iabbrev <buffer> ei elif:<Left>
     autocmd FileType python iabbrev <buffer> el else:<C-O>o<Left>
-    autocmd FileType html iabbrev <buffer> h1 <h1></h1><C-O>F<
-    autocmd FileType html iabbrev <buffer> h2 <h2></h2><C-O>F<
-    autocmd FileType html iabbrev <buffer> h3 <h3></h3><C-O>F<
-    autocmd FileType html iabbrev <buffer> h4 <h4></h4><C-O>F<
-    autocmd FileType html iabbrev <buffer> h5 <h5></h5><C-O>F<
-    autocmd FileType html iabbrev <buffer> h6 <h6></h6><C-O>F<
-    autocmd FileType html iabbrev <buffer> p <p></p><C-O>F<
+    autocmd FileType html, javascript iabbrev <buffer> h1 <h1></h1><C-O>F<
+    autocmd FileType html, javascript iabbrev <buffer> h2 <h2></h2><C-O>F<
+    autocmd FileType html, javascript iabbrev <buffer> h3 <h3></h3><C-O>F<
+    autocmd FileType html, javascript iabbrev <buffer> h4 <h4></h4><C-O>F<
+    autocmd FileType html, javascript iabbrev <buffer> h5 <h5></h5><C-O>F<
+    autocmd FileType html, javascript iabbrev <buffer> h6 <h6></h6><C-O>F<
+    autocmd FileType html, javascript iabbrev <buffer> p <p></p><C-O>F<
     autocmd FileType vim iabbrev <buffer> ei elseif
     autocmd FileType sh iabbrev <buffer> func
                 \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
