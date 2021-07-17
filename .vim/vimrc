@@ -3,6 +3,7 @@ set tags=tags
 let maplocalleader="\\"
 let pi = 3.14159265359
 let e  = 2.71828182846
+set cursorline
 set nocompatible
 set noswapfile
 set nobackup
@@ -151,16 +152,22 @@ augroup snippetAbbreviations
     autocmd!
     autocmd FileType python iabbrev <buffer> iff if:<Left>
     autocmd FileType python iabbrev <buffer> whi while:<Left>
-    autocmd FileType python,sh,vim iabbrev <buffer> ret return
+    autocmd FileType python,sh,vim,javascript iabbrev <buffer> ret return
     autocmd FileType python iabbrev <buffer> ei elif:<Left>
     autocmd FileType python iabbrev <buffer> el else:<C-O>o<Left>
-    autocmd FileType html, javascript iabbrev <buffer> h1 <h1></h1><C-O>F<
-    autocmd FileType html, javascript iabbrev <buffer> h2 <h2></h2><C-O>F<
-    autocmd FileType html, javascript iabbrev <buffer> h3 <h3></h3><C-O>F<
-    autocmd FileType html, javascript iabbrev <buffer> h4 <h4></h4><C-O>F<
-    autocmd FileType html, javascript iabbrev <buffer> h5 <h5></h5><C-O>F<
-    autocmd FileType html, javascript iabbrev <buffer> h6 <h6></h6><C-O>F<
-    autocmd FileType html, javascript iabbrev <buffer> p <p></p><C-O>F<
+    autocmd FileType javascript iabbrev <buffer> imp import from '';<C-O>8h
+    autocmd FileType html,javascript iabbrev <buffer> h1 <h1></h1><C-O>F<
+    autocmd FileType html,javascript iabbrev <buffer> h2 <h2></h2><C-O>F<
+    autocmd FileType html,javascript iabbrev <buffer> h3 <h3></h3><C-O>F<
+    autocmd FileType html,javascript iabbrev <buffer> h4 <h4></h4><C-O>F<
+    autocmd FileType html,javascript iabbrev <buffer> h5 <h5></h5><C-O>F<
+    autocmd FileType html,javascript iabbrev <buffer> h6 <h6></h6><C-O>F<
+    autocmd FileType html,javascript iabbrev <buffer> p <p></p><C-O>F<
+    autocmd FileType html,javascript iabbrev <buffer> lbl <label class=""></label><C-O>F"
+    autocmd FileType html,javascript iabbrev <buffer> spn <span class=""></span><C-O>F"
+    autocmd FileType html iabbrev <buffer> bttn <button type="" class=""></button><C-O>F"
+    autocmd FileType html iabbrev <buffer> div <div class=""></div><C-O>F"
+    autocmd FileType html iabbrev <buffer> npt <input type="" class="" aria-labelledby="" name=""><C-O>F"
     autocmd FileType vim iabbrev <buffer> ei elseif
     autocmd FileType sh iabbrev <buffer> func
                 \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
@@ -215,8 +222,8 @@ set nowrap
 set textwidth=79
 set colorcolumn=+1
 set tabstop=8
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set noshiftround
 set backspace=indent,eol,start
