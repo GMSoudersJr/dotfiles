@@ -10,7 +10,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 " Kill the audio bell
-set visualbell
+set novisualbell
 " Find files without using a plugin
 " Search down into subfolders
 set path+=**
@@ -39,6 +39,18 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " to get italics to work in the terminal
 set t_ZH=[3m
 set t_ZR=[23m
+" Use a line cursor within insert mode and a block cursor everywhere else.
+"
+" Reference chart of values:
+"   Ps = 0 -> blinking block.
+"   Ps = 1 -> blinking block (default).
+"   Ps = 2 -> steady block.
+"   Ps = 3 -> blinking underline.
+"   Ps = 4 -> steady underline.
+"   Ps = 5 -> blinking bar (xterm).
+"   Ps = 0 -> steady bar (xterm)
+let &t_SI = "\e[4 q"
+let &t_EI = "\e[2 q"
 " }}}
 " MAPPINGS ---------- {{{
 " This unsets the last search pattern register by hitting return
@@ -171,6 +183,12 @@ augroup snippetAbbreviations
     autocmd FileType vim iabbrev <buffer> ei elseif
     autocmd FileType sh iabbrev <buffer> func
                 \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
+    autocmd FileType javascript iabbrev <buffer> exaf
+                \ export async function N() {}<C-O>i<CR><Esc>kfNciw<BS>
+    autocmd FileType javascript iabbrev <buffer> exf
+                \ export function N() {}<C-O>i<CR><Esc>kfNciw<BS>
+    autocmd FileType javascript iabbrev <buffer> exdf
+                \ export default function N() {}<C-O>i<CR><Esc>kfNciw<BS>
     autocmd FileType javascript nnoremap <buffer> <Leader>; mqA;<Esc>`q
     autocmd FileType javascript inoremap <buffer> <Leader>; <Esc>:execute
                 \ "normal! mqA;\<lt>Esc>`q"<CR>

@@ -3,7 +3,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 # opening chrome in linux on a windows pc.
-alias launchchrome="\"/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe\""
+alias launchChrome="\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\""
+# opening firefox in linux on a windows pc.
+alias launchFirefox="\"/mnt/c/Program Files/Mozilla Firefox/firefox.exe\""
+# opening edge in linux on a windows pc.
+alias launchEdge="\"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\""
 # updating and upgrading cause I am tired of type it all out
 alias update='sudo apt-get update'
 alias upgrade='sudo apt upgrade'
@@ -22,3 +26,13 @@ alias vim='vim -c "let g:tty='\''$(tty)'\''"'
 alias sbo='cd ~/backoffice/kids-api/Web/BackofficeApp && npm start'
 # an alias to start editing the backoffice app in vim
 alias vbo='vim ~/backoffice/kids-api/Web/BackofficeApp'
+# an alias to start the AwesomeProject development server locally
+alias sap='cd ~/mobile_app_playground/AwesomeProject && npm start'
+# an alias to start editing the AwesomeProject app in vim
+alias vap='cd ~/mobile_app_playground/AwesomeProject && vim .'
+# an alias to jump to the android studio projects folder
+alias wasp='cl /mnt/c/Users/Gerald/AndroidStudioProjects'
+# an alias to start webpack demo project
+alias swd='cd ~/webpack-demo && npm start'
+# an alias to start editing the webpack-demo
+alias vwd='vim ~/webpack-demo'
