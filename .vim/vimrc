@@ -180,8 +180,9 @@ augroup snippetAbbreviations
     autocmd FileType html,svelte iabbrev <buffer> bttn <button type="" class=""></button><C-O>F"
     autocmd FileType html,svelte iabbrev <buffer> div <div class=""></div><C-O>F"
     autocmd FileType html,svelte iabbrev <buffer> npt <input type="" class="" aria-labelledby="" name=""><C-O>F"
+    autocmd FileType html,svelte iabbrev <buffer> scrpt <script></script><C-O>F<
     autocmd FileType vim iabbrev <buffer> ei elseif
-    autocmd FileType sh iabbrev <buffer> func
+    autocmd FileType sh,javascript,svelte iabbrev <buffer> func
                 \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
     autocmd FileType javascript iabbrev <buffer> exaf
                 \ export async function N() {}<C-O>i<CR><Esc>kfNciw<BS>
