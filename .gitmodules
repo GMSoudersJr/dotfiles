@@ -10,3 +10,6 @@
 [submodule ".vim/pack/syntax/start/vim-polyglot"]
 	path = .vim/pack/syntax/start/vim-polyglot
 	url = git@github.com:sheerun/vim-polyglot.git
+[submodule ".vim/pack/git/opt/vim-fugitive"]
+	path = .vim/pack/git/opt/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
