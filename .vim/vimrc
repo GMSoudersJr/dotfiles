@@ -88,8 +88,12 @@ nnoremap <F12> :write<CR>:mksession! $HOME/.vim/sessions/mine.vim<CR>:qall<CR>
 noremap - dd2kp
 " Move current line down
 noremap _ ddp
+" Move cursor to the first column
 noremap H ^
+" Move cursor to the last column
 noremap L $
+" copy entire line
+noremap Y yy
 " Uppercase a word
 inoremap <leader><C-U> <Esc>viwUea
 nnoremap <leader><C-U> viwU
@@ -177,10 +181,11 @@ augroup snippetAbbreviations
     autocmd FileType html,javascript,svelte iabbrev <buffer> p <p></p><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> lbl <label class=""></label><C-O>F"
     autocmd FileType html,javascript,svelte iabbrev <buffer> spn <span class=""></span><C-O>F"
-    autocmd FileType html,svelte iabbrev <buffer> bttn <button type="" class=""></button><C-O>F"
+    autocmd FileType html iabbrev <buffer> bttn <button type="" class=""></button><C-O>F"
+    autocmd FileType svelte iabbrev <buffer> bttn <button type="" class="" on:click={}></button><C-O>F}
     autocmd FileType html,svelte iabbrev <buffer> div <div class=""></div><C-O>F"
     autocmd FileType html,svelte iabbrev <buffer> npt <input type="" class="" aria-labelledby="" name=""><C-O>F"
-    autocmd FileType html,svelte iabbrev <buffer> scrpt <script></script><C-O>F<
+    autocmd FileType html,svelte iabbrev <buffer> scpt <script></script><C-O>F<
     autocmd FileType vim iabbrev <buffer> ei elseif
     autocmd FileType sh,javascript,svelte iabbrev <buffer> func
                 \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
