@@ -179,6 +179,7 @@ augroup snippetAbbreviations
     autocmd FileType html,javascript,svelte iabbrev <buffer> h5 <h5></h5><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> h6 <h6></h6><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> ul <ul></ul><C-O>F<
+    autocmd FileType html,javascript,svelte iabbrev <buffer> ol <ol></ol><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> li <li></li><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> p <p></p><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> lbl <label class=""></label><C-O>F"
