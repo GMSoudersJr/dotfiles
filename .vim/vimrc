@@ -168,18 +168,18 @@ augroup snippetAbbreviations
     autocmd!
     autocmd FileType python iabbrev <buffer> iff if:<Left>
     autocmd FileType python iabbrev <buffer> whi while:<Left>
-    autocmd FileType python,sh,vim,javascript iabbrev <buffer> ret return
+    autocmd FileType python,sh,vim,javascript,svelte iabbrev <buffer> ret return
     autocmd FileType python iabbrev <buffer> ei elif:<Left>
     autocmd FileType python iabbrev <buffer> el else:<C-O>o<Left>
-    autocmd FileType javascript iabbrev <buffer> imp import from '';<C-O>8h
+    autocmd FileType javascript,svelte iabbrev <buffer> imp import from '';<C-O>8h
     autocmd FileType html,javascript,svelte iabbrev <buffer> h1 <h1></h1><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> h2 <h2></h2><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> h3 <h3></h3><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> h4 <h4></h4><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> h5 <h5></h5><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> h6 <h6></h6><C-O>F<
-    autocmd FileType html,javascript,svelte iabbrev <buffer> ul <ul></ul><C-O>F<
-    autocmd FileType html,javascript,svelte iabbrev <buffer> ol <ol></ol><C-O>F<
+    autocmd FileType html,javascript,svelte iabbrev <buffer> ul <ul><Esc>Ypa/<Esc>O
+    autocmd FileType html,javascript,svelte iabbrev <buffer> ol <ol><Esc>Ypa/<Esc>O
     autocmd FileType html,javascript,svelte iabbrev <buffer> li <li></li><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> p <p></p><C-O>F<
     autocmd FileType html,javascript,svelte iabbrev <buffer> lbl <label class=""></label><C-O>F"
@@ -188,7 +188,8 @@ augroup snippetAbbreviations
     autocmd FileType svelte iabbrev <buffer> bttn <button type="" class="" on:click={}></button><C-O>F}
     autocmd FileType html,svelte iabbrev <buffer> div <div class=""></div><C-O>F"
     autocmd FileType html,svelte iabbrev <buffer> npt <input type="" class="" aria-labelledby="" name=""><C-O>F"
-    autocmd FileType html,svelte iabbrev <buffer> scpt <script></script><C-O>F<
+    autocmd FileType html,svelte iabbrev <buffer> scpt <script>jkYpa/<C-O>O
+    autocmd FileType html,svelte iabbrev <buffer> styl <style>jkYpa/<C-O>O
     autocmd FileType vim iabbrev <buffer> ei elseif
     autocmd FileType sh,javascript,svelte iabbrev <buffer> func
                 \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
@@ -202,15 +203,17 @@ augroup snippetAbbreviations
     autocmd FileType javascript inoremap <buffer> <Leader>; <Esc>:execute
                 \ "normal! mqA;\<lt>Esc>`q"<CR>
     autocmd FileType vim iabbrev <buffer> ef endfunction
-    autocmd FileType javascript iabbrev <buffer> iff if (N) {}<C-O>i<CR><Esc>kfNciw
-    autocmd FileType javascript iabbrev <buffer> ei else if (N)
+    autocmd FileType svelte iabbrev <buffer> hif {#if}<Esc>yypf#r/kffa<Space>
+    autocmd FileType svelte iabbrev <buffer> heach {#each}<Esc>yypf#r/kfha<Space>
+    autocmd FileType javascript,svelte iabbrev <buffer> iff if (N) {}<C-O>i<CR><Esc>kfNciw
+    autocmd FileType javascript,svelte iabbrev <buffer> ei else if (N)
                 \ {}<C-O>i<CR><Esc>kfNciw
 augroup END
 " }}}
 " FILETYPE_TABS ---------- {{{
 augroup fileTypeTabs
     autocmd!
-    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
     autocmd FileType python setlocal shiftwidth=4 softtabstop=2
 augroup END
 " }}}
