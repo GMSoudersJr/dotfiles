@@ -190,6 +190,8 @@ augroup snippetAbbreviations
     autocmd FileType html,svelte iabbrev <buffer> npt <input type="" class="" aria-labelledby="" name=""><C-O>F"
     autocmd FileType html,svelte iabbrev <buffer> scpt <script>jkYpa/<C-O>O
     autocmd FileType html,svelte iabbrev <buffer> styl <style>jkYpa/<C-O>O
+    autocmd FileType html,svelte iabbrev <buffer> ttl <title>jkYpa/<C-O>O
+    autocmd FileType svelte iabbrev <buffer> svhead <svelte:head>jkYpa/<C-O>O
     autocmd FileType vim iabbrev <buffer> ei elseif
     autocmd FileType sh,javascript,svelte iabbrev <buffer> func
                 \ function N() {}<C-O>i<CR><Esc>kfNciw<BS>
@@ -205,6 +207,8 @@ augroup snippetAbbreviations
     autocmd FileType vim iabbrev <buffer> ef endfunction
     autocmd FileType svelte iabbrev <buffer> hif {#if}<Esc>yypf#r/kffa<Space>
     autocmd FileType svelte iabbrev <buffer> heach {#each}<Esc>yypf#r/kfha<Space>
+    autocmd FileType svelte iabbrev <buffer> hawait {#await}<Esc>yypf#r/kfha<Space>
+    autocmd FileType svelte iabbrev <buffer> hkey {#key}<Esc>yypf#r/kfha<Space>
     autocmd FileType javascript,svelte iabbrev <buffer> iff if (N) {}<C-O>i<CR><Esc>kfNciw
     autocmd FileType javascript,svelte iabbrev <buffer> ei else if (N)
                 \ {}<C-O>i<CR><Esc>kfNciw
