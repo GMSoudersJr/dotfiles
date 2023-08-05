@@ -23,16 +23,26 @@ alias zombie='ps axo stat,ppid,pid,comm | grep -w defunct'
 # an alias to make make vim easier to copy and paste with
 alias vim='vim -c "let g:tty='\''$(tty)'\''"'
 # an alias to start the backoffice development server locally
-alias sbo='cd ~/backoffice/kids-api/Web/BackofficeApp && npm start'
+# alias sbo='cd ~/backoffice/kids-api/Web/BackofficeApp && npm start'
 # an alias to start editing the backoffice app in vim
-alias vbo='vim ~/backoffice/kids-api/Web/BackofficeApp'
+# alias vbo='vim ~/backoffice/kids-api/Web/BackofficeApp'
 # an alias to start the AwesomeProject development server locally
-alias sap='cd ~/mobile_app_playground/AwesomeProject && npm start'
+# alias sap='cd ~/mobile_app_playground/AwesomeProject && npm start'
 # an alias to start editing the AwesomeProject app in vim
-alias vap='cd ~/mobile_app_playground/AwesomeProject && vim .'
+# alias vap='cd ~/mobile_app_playground/AwesomeProject && vim .'
 # an alias to jump to the android studio projects folder
-alias wasp='cl /mnt/c/Users/Gerald/AndroidStudioProjects'
+# alias wasp='cl /mnt/c/Users/Gerald/AndroidStudioProjects'
 # an alias to start webpack demo project
-alias swd='cd ~/webpack-demo && npm start'
+# alias swd='cd ~/webpack-demo && npm start'
 # an alias to start editing the webpack-demo
-alias vwd='vim ~/webpack-demo'
+# alias vwd='vim ~/webpack-demo'
+# an alias to start svelte playground dev server
+alias ssp='cd ~/svelte_projects/full-stack/play-full && npm run dev'
+# an alias to start editing the svelte playground
+alias vsp='cd ~/svelte_projects/full-stack/play-full && nvim .'
+# an alias to evaluate the ssh agent and add passphrase
+alias agent='eval `ssh-agent` && ssh-add'
+# an alias to start editing the svelte portfolio
+alias vpo='cd ~/svelte_projects/portfolio && nvim .'
+# an alias to start portfolio in dev mode
+alias spo='cd ~/svelte_projects/portfolio && nvm use node && npm run dev'

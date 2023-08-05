@@ -209,6 +209,12 @@ augroup snippetAbbreviations
     autocmd FileType svelte iabbrev <buffer> heach {#each}<Esc>yypf#r/kfha<Space>
     autocmd FileType svelte iabbrev <buffer> hawait {#await}<Esc>yypf#r/kfha<Space>
     autocmd FileType svelte iabbrev <buffer> hkey {#key}<Esc>yypf#r/kfha<Space>
+    autocmd FileType javascript iabbrev <buffer> pgld /** @type {import('./$types').PageLoad} */<Esc>o
+    autocmd FileType javascript iabbrev <buffer> ltld /** @type {import('./$types').LayoutLoad} */<Esc>o
+    autocmd FileType javascript iabbrev <buffer> pgsrld /** @type {import('./$types').PageServerLoad} */<Esc>o
+    autocmd FileType javascript iabbrev <buffer> sact /** @type {import('./$types').Actions} */<Esc>o
+    autocmd FileType svelte iabbrev <buffer> pgdt /** @type {import('./$types').PageData} */<Esc>o
+    autocmd FileType svelte iabbrev <buffer> acdt /** @type {import('./$types').ActionData} */<Esc>o
     autocmd FileType javascript,svelte iabbrev <buffer> iff if (N) {}<C-O>i<CR><Esc>kfNciw
     autocmd FileType javascript,svelte iabbrev <buffer> ei else if (N)
                 \ {}<C-O>i<CR><Esc>kfNciw
@@ -217,7 +223,7 @@ augroup END
 " FILETYPE_TABS ---------- {{{
 augroup fileTypeTabs
     autocmd!
-    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+    autocmd FileType javascript,svelte setlocal shiftwidth=2 softtabstop=2 tabstop=2
     autocmd FileType python setlocal shiftwidth=4 softtabstop=2
 augroup END
 " }}}
