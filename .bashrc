@@ -125,3 +125,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # automatically fix typos in cd command
 shopt -s cdspell
+# WSL will open a duplicate tab in the same working directory now.  Need to see
+# if this will be problem in Linux shell though.
+export PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"'
